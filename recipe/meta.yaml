@@ -7,11 +7,11 @@ package:
 
 source:
   url: https://currents.soest.hawaii.edu/hgstage/pygamma/archive/v{{ version }}.tar.gz
-  sha256: 2faaedae997d18a842e0786361c0ec79d5f5cfb0736810d17a18275b31965b1b
+  sha256: c719ac3f467509933fffd93acc1dc95f964a726b5b9e704bd053281c8441e749
 
 build:
-  number: 1
-  skip: true  # [py<39 or win]
+  number: 2
+  skip: true  # [win]
   script:
     - export SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}  # [not win]
     - set SETUPTOOLS_SCM_PRETEND_VERSION={{ version }}    # [win]
