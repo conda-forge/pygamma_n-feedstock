@@ -1,6 +1,13 @@
+conda_build:
+  pkg_format: '2'
+  error_overlinking: true
+conda_forge_output_validation: true
 github:
   branch_name: main
   tooling_branch_name: main
-conda_build:
-  error_overlinking: true
-conda_forge_output_validation: true
+provider:
+  linux_aarch64: github_actions
+  osx_arm64: github_actions
+test: native_and_emulated
+conda_build_tool: rattler-build
+conda_install_tool: pixi

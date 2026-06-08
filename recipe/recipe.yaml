@@ -1,0 +1,78 @@
+schema_version: 1
+
+context:
+  version: "1.1.0"
+  commit: "96e965936e594ed13c6920f5f172cd6bb7662428"
+
+package:
+  name: pygamma_n
+  version: ${{ version }}
+
+source:
+  url: https://currents.soest.hawaii.edu/git/uh-currents-group/oceanography-tools/pygamma/-/archive/${{ commit }}/pygamma-${{ commit }}.tar.gz
+  sha256: abbb02b7c9e526691fa34743745faeecfe33554f1c7145fd2ec6bfe58b113a4d
+
+build:
+  number: 0
+  skip:
+    - win
+  script:
+    - if: win
+      then:
+        - set SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }}
+    - if: unix
+      then:
+        - export SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }}
+        - meson ${MESON_ARGS} builddir/  # fix cross-compilation
+    - python -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  build:
+    - if: build_platform != target_platform
+      then:
+        - python
+        - cross-python_${{ target_platform }}
+        - numpy
+        - meson-python >=0.15
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
+    - ${{ compiler('fortran') }}
+  host:
+    - python
+    - pip
+    - numpy
+    - meson-python >=0.15
+    - netcdf-fortran
+    - netcdf-fortran * nompi_*
+    - setuptools_scm
+  run:
+    - python
+    - netcdf-fortran
+    - netcdf-fortran * nompi_*
+    - numpy
+
+tests:
+  - python:
+      imports:
+        - pygamma_n
+      pip_check: true
+  - requirements:
+      run:
+        - python
+        - pytest
+    files:
+      source:
+        - pygamma_n/tests/
+    script:
+        - pytest pygamma_n/tests/
+
+about:
+  homepage: https://currents.soest.hawaii.edu/git/uh-currents-group/oceanography-tools/pygamma
+  license: MIT AND LicenseRef-CSIRO
+  license_file: pygamma_n/src/ConditionsOfUse
+  summary: Python interface for the original Fortran neutral density
+
+extra:
+  recipe-maintainers:
+    - ocefpaf
+    - efiring
