@@ -37,7 +37,6 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('fortran') }}
-    - pkg-config
   host:
     - python
     - pip
@@ -46,7 +45,6 @@ requirements:
     - netcdf-fortran
     - netcdf-fortran * nompi_*
     - setuptools_scm
-    - pkg-config
   run:
     - python
     - netcdf-fortran
