@@ -43,12 +43,10 @@ requirements:
     - numpy
     - meson-python >=0.15
     - netcdf-fortran
-    - netcdf-fortran * nompi_*
     - setuptools_scm
   run:
     - python
     - netcdf-fortran
-    - netcdf-fortran * nompi_*
     - numpy
 
 tests:
