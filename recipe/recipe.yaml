@@ -23,7 +23,7 @@ build:
     - if: unix
       then:
         - export SETUPTOOLS_SCM_PRETEND_VERSION=${{ version }}
-        - meson ${MESON_ARGS} builddir/
+        - meson ${MESON_ARGS} builddir/  # fix cross-compilation
     - python -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
@@ -37,7 +37,6 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
     - ${{ compiler('fortran') }}
-    - pkg-config
   host:
     - python
     - pip
@@ -46,7 +45,6 @@ requirements:
     - netcdf-fortran
     - netcdf-fortran * nompi_*
     - setuptools_scm
-    - pkg-config
   run:
     - python
     - netcdf-fortran
