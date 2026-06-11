@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.1.1"
+  version: "1.1.2"
 
 package:
   name: pygamma_n
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://currents.soest.hawaii.edu/git/uh-currents-group/oceanography-tools/pygamma/-/archive/v${{ version }}/pygamma-v${{ version }}.tar.gz
-  sha256: 004781454d6957d208cf06626dff456146835a1e4d11d481ff75695265ca4a5d
+  sha256: 2de6d073ef383919cd96ac2334a3ec3763f99cd022310ea6ad56ab91f6591ddf
 
 build:
   number: 0
@@ -63,8 +63,8 @@ tests:
       source:
         - pygamma_n/tests/
     script:
-        - pytest pygamma_n/tests/
-        - python -c "import pygamma_n; print(f'{pygamma_n.__version__=}')"
+      - pytest pygamma_n/tests/
+      - python -c "import pygamma_n; print(f'{pygamma_n.__version__=}')"
 
 about:
   homepage: https://currents.soest.hawaii.edu/git/uh-currents-group/oceanography-tools/pygamma
