@@ -61,15 +61,17 @@ tests:
         - pytest
     files:
       source:
-        - pygamma_n/tests/
+        - tests/
     script:
-      - pytest pygamma_n/tests/
+      - pytest tests/
       - python -c "import pygamma_n; print(f'{pygamma_n.__version__=}')"
 
 about:
   homepage: https://currents.soest.hawaii.edu/git/uh-currents-group/oceanography-tools/pygamma
   license: MIT AND LicenseRef-CSIRO
-  license_file: pygamma_n/src/ConditionsOfUse
+  license_file:
+    - readme.txt
+    - src/pygamma_n/src/ConditionsOfUse
   summary: Python interface for the original Fortran neutral density
 
 extra:
