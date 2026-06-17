@@ -8,8 +8,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://currents.soest.hawaii.edu/git/uh-currents-group/oceanography-tools/pygamma/-/archive/v${{ version }}/pygamma-v${{ version }}.tar.gz
-  sha256: 2de6d073ef383919cd96ac2334a3ec3763f99cd022310ea6ad56ab91f6591ddf
+  url: https://currents.soest.hawaii.edu/git/Oceanography_Tools/pygamma/archive/v${{ version }}.tar.gz
+  sha256: 746b3b4602b13e70df0a3c5a2e008469655c69f360d6365c6d8271545cff2da0
 
 build:
   number: 0
