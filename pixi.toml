@@ -5,7 +5,7 @@
 
 [workspace]
 name = "pygamma_n-feedstock"
-version = "2026.5.29"  # conda-smithy version used to generate this file
+version = "2026.6.14"  # conda-smithy version used to generate this file
 description = "Pixi configuration for conda-forge/pygamma_n-feedstock"
 authors = ["@conda-forge/pygamma_n"]
 channels = ["conda-forge"]
