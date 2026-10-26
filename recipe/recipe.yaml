@@ -8,7 +8,7 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://currents.soest.hawaii.edu/git/Oceanography_Tools/pygamma/releases/download/v${{ version }}/pygamma_n-${{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/source/p/pygamma-n/pygamma_n-${{ version }}.tar.gz
   sha256: 58bde8c9b689d7cc277f50d6112796242bb44db4aa98777cb7625dd7c62d2b16
 
 build:
